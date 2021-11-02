@@ -6,7 +6,7 @@ const client = new Discord.Client();
 
 const {
     token
-} = require("./hidden/token.json")
+} = require("./token.json")
 
 // Display a message once the bot has started
 client.on("ready", () => {
@@ -16,16 +16,27 @@ client.on("ready", () => {
 // Check messages for a specific command
 client.on("message", msg => {
     const toLower = msg.content.toLowerCase();
+
     // Send back a reply when the specific command has been written
     if (toLower === "!hello") {
         msg.reply("Hello world!");
     }
     // help command
     else if(toLower === '!help'){
-        msg.reply("This bot has 2 commands, !hello and !help");
-    }
+        msg.reply("This bot has 5 commands, !hello, !help, !10/12, !b and !randint");
+    } 
+    //10/12 command
     else if (toLower === '!10/12'){
         msg.reply('Nice reference');
+    }
+    // b emoji command
+    else if (toLower === '!b'){
+        msg.reply('🅱️');
+    }
+    // random int command
+    else if (toLower === '!randint'){
+        let num = Math.floor(Math.random() * 100);
+        msg.reply(num)
     }
 });
 
