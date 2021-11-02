@@ -18,4 +18,4 @@ client.on("message", msg => {
 });
 
 // Log in the bot with the token
-client.login("token");
+client.login("OTA1MTg4NzE0NzM5ODA2MzA4.YYGcrw.7KZtah3U5HI18YpnF-EjV-OCkAg");

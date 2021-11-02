@@ -1,0 +1,26 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cookie-cpu/discord-bot.git"
+  },
+  "keywords": [
+    "Matthew",
+    "Cook"
+  ],
+  "author": "Matthew Cook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cookie-cpu/discord-bot/issues"
+  },
+  "homepage": "https://github.com/cookie-cpu/discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
