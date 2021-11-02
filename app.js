@@ -11,9 +11,15 @@ client.on("ready", () => {
 
 // Check messages for a specific command
 client.on("message", msg => {
+    const toLower = msg.content.toLowerCase();
     // Send back a reply when the specific command has been written
-    if (msg.content === "!hello") {
+    if (toLower === "!hello") {
         msg.reply("Hello world!");
+    }
+
+    // help command
+    else if(toLower === '!help'){
+        msg.reply("This bot has 2 commands, !hello and !help");
     }
 });
 
