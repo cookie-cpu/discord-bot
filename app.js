@@ -6,7 +6,7 @@ const client = new Discord.Client();
 
 const {
     token
-} = require("../hidden/token.json")
+} = require("./hidden/token.json")
 
 // Display a message once the bot has started
 client.on("ready", () => {
