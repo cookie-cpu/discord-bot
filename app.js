@@ -8,6 +8,13 @@ const {
     token
 } = require("./token.json")
 
+const reverseStr = function(str){
+    let splitStr = str.split("");
+    let reverse = splitStr.reverse();
+    let joined = reverse.join("")
+    return joined;
+  }
+
 // Display a message once the bot has started
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -38,6 +45,11 @@ client.on("message", msg => {
         let num = Math.floor(Math.random() * 100);
         msg.reply(num)
     }
+    //TODO change array range to target command but keep rest of message for reversal logic
+    // else if (toLower[0,7] === '!reverse'){
+    //     msg.reply(reverseStr(toLower))
+    //     //msg.reply(toLower)
+    // }
 });
 
 
