@@ -4,6 +4,10 @@ const Discord = require("discord.js");
 // Create a new client using the new keyword
 const client = new Discord.Client();
 
+const {
+    token
+} = require("../hidden/token.json")
+
 // Display a message once the bot has started
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -16,12 +20,15 @@ client.on("message", msg => {
     if (toLower === "!hello") {
         msg.reply("Hello world!");
     }
-
     // help command
     else if(toLower === '!help'){
         msg.reply("This bot has 2 commands, !hello and !help");
     }
+    else if (toLower === '!10/12'){
+        msg.reply('Nice reference');
+    }
 });
 
+
 // Log in the bot with the token
-client.login("OTA1MTg4NzE0NzM5ODA2MzA4.YYGcrw.78_O3vMpoODEwPHKBN-eQot_fP8");
+client.login(token);
