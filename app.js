@@ -1,12 +1,15 @@
+//Require dotenv to load bot token
+require('dotenv').config();
+const TOKEN = process.env.TOKEN;
+
+console.log(`Discord Bot Token: ${TOKEN}`);
+
 // Require discord.js package
 const Discord = require("discord.js");
 
 // Create a new client using the new keyword
 const client = new Discord.Client();
 
-const {
-    token
-} = require("./token.json")
 
 const reverseStr = function(str){
     let splitStr = str.split("");
@@ -46,12 +49,12 @@ client.on("message", msg => {
         msg.reply(num)
     }
     //TODO change array range to target command but keep rest of message for reversal logic
-    // else if (toLower[0,7] === '!reverse'){
-    //     msg.reply(reverseStr(toLower))
-    //     //msg.reply(toLower)
-    // }
+    else if (toLower === '!reverse'){
+        msg.reply(reverseStr(toLower))
+        //msg.reply(toLower)
+    }
 });
 
 
 // Log in the bot with the token
-client.login(token);
+client.login(TOKEN);

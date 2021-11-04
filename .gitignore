@@ -1,3 +1,4 @@
 node_modules/
 bot ID.txt
 token.json
+.env
