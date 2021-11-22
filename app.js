@@ -26,35 +26,40 @@ client.on("ready", () => {
 client.on("message", msg => {
 
     //console.log(msg);
-    console.log(`${msg.author.username} Sent a message`);
+    //console.log(`${msg.author.username} Sent a message`);
 
 
     
     //makes message lowercase for !commands to easily match
-    const toLower = msg.content.toLowerCase();
+    const command = msg.content.toLowerCase();
+    
+    
 
     // Send back a reply when the specific command has been written
-    if (toLower === "!hello") {
-        msg.reply("Hello world!");
+    switch (command) {
+        case '!hello':
+            msg.reply("Hello world!");
+            break;
+        case '!help':
+            msg.reply("This bot has 4 commands, !hello, !help, !bmoji and ");
+            break;
+        case '!bmoji':
+            msg.reply('🅱️');
+            break;
+        default:
+            break;
     }
-    // help command
-    else if(toLower === '!help'){
-        msg.reply("This bot has 4 commands, !hello, !help, !bmoji and ");
-    } 
-    // b emoji command
-    else if (toLower === '!bmoji'){
-        msg.reply('🅱️');
-    }
+
     // random int command
     // else if (toLower === '!randint'){
     //     let num = Math.floor(Math.random() * 100);
     //     msg.reply(num)
     // }
     //TODO change array range to target command but slice rest of message for reversal function
-    else if (toLower === '!reverse'){
-        msg.reply(reverseStr(toLower))
-        //msg.reply(toLower)
-    }
+    // else if (toLower === '!reverse'){
+    //     msg.reply(reverseStr(toLower))
+    //     //msg.reply(toLower)
+    // }
 });
 
 
