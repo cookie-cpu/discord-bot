@@ -1,16 +1,15 @@
 //Require dotenv to load bot token
 require('dotenv').config();
-const TOKEN = process.env.TOKEN;
+const TOKEN = process.env.TOKEN || "";
 
-console.log(`Discord Bot Token: ${TOKEN}`);
+//console.log(`Discord Bot Token: ${TOKEN}`);
 
-// Require discord.js package
-const Discord = require("discord.js");
+const { Client, Intents } = require('discord.js');
 
-// Create a new client using the new keyword
-const client = new Discord.Client();
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
+// Functions
 const reverseStr = function(str){
     let splitStr = str.split("");
     let reverse = splitStr.reverse();
@@ -25,6 +24,13 @@ client.on("ready", () => {
 
 // Check messages for a specific command
 client.on("message", msg => {
+
+    //console.log(msg);
+    console.log(`${msg.author.username} Sent a message`);
+
+
+    
+    //makes message lowercase for !commands to easily match
     const toLower = msg.content.toLowerCase();
 
     // Send back a reply when the specific command has been written
@@ -33,22 +39,18 @@ client.on("message", msg => {
     }
     // help command
     else if(toLower === '!help'){
-        msg.reply("This bot has 5 commands, !hello, !help, !10/12, !b and !randint");
+        msg.reply("This bot has 4 commands, !hello, !help, !bmoji and ");
     } 
-    //10/12 command
-    else if (toLower === '!10/12'){
-        msg.reply('Nice reference');
-    }
     // b emoji command
-    else if (toLower === '!b'){
+    else if (toLower === '!bmoji'){
         msg.reply('🅱️');
     }
     // random int command
-    else if (toLower === '!randint'){
-        let num = Math.floor(Math.random() * 100);
-        msg.reply(num)
-    }
-    //TODO change array range to target command but keep rest of message for reversal logic
+    // else if (toLower === '!randint'){
+    //     let num = Math.floor(Math.random() * 100);
+    //     msg.reply(num)
+    // }
+    //TODO change array range to target command but slice rest of message for reversal function
     else if (toLower === '!reverse'){
         msg.reply(reverseStr(toLower))
         //msg.reply(toLower)
